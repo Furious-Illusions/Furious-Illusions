@@ -1,0 +1,45 @@
+﻿@using System.Data
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    DataSet ds = Session["xmDataSet"] as DataSet;
+}
+
+<form method="post" action="">
+    <table>
+        <tr>
+            <td>ID:</td>
+            <td><input type="text" size="25" name="" placeholder="" value=""></td>
+        </tr>
+        <tr>
+            <td>Artist:</td>
+            <td><input type="text" size="25" name="" placeholder="" value=""></td>
+        </tr>
+        <tr>
+            <td>Song title:</td>
+            <td><input type="text" size="25" name="" placeholder="" value=""></td>
+        </tr>
+        <tr>
+            <td>Publication year:</td>
+            <td><input type="text" size="25" name="" placeholder="" value=""></td>
+        </tr>
+        <tr>
+            <td>Genre:</td>
+            <td><input type="text" size="25" name="" placeholder="" value=""></td>
+        </tr>
+        <tr>
+            <td>Duration:</td>
+            <td><input type="text" size="25" name="" placeholder="" value=""></td>
+        </tr>
+        <tr>
+            <td>File:</td>
+            <td><input type="text" size="25" name="" placeholder="" value=""></td>
+        </tr>
+        <tr colspan="2">
+            <td><input type="submit" name="Toevoegen" value="Toevoegen"></td>
+        </tr>
+    </table>
+</form>
+
