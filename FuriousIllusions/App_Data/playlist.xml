@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<playlist>
+  <song>
+    <id>1</id>
+    <artist>Dire Straits</artist>
+    <title>Sultan of swing</title>
+    <publication>1978</publication>
+    <genre>Rock</genre>
+    <duration>5:46</duration>
+    <file>SultanOfSwing.mp3</file>
+  </song>
+  <song>
+    <id>2</id>
+    <artist>Alan Walker</artist>
+    <title>Alone</title>
+    <publication>????</publication>
+    <genre>????</genre>
+    <duration>????</duration>
+    <file>Alone.mp3</file>
+  </song>
+</playlist>

@@ -1,0 +1,47 @@
+﻿@using System.Data;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    DataSet ds = new DataSet("playlist");
+
+    DataTable dtSongs = new DataTable("song");
+
+    DataColumn dtId = new DataColumn("id");
+    DataColumn dtArtist = new DataColumn("artist");
+    DataColumn dtTitle = new DataColumn("title");
+    DataColumn dtYear = new DataColumn("year");
+    DataColumn dtGenre = new DataColumn("genre");
+    DataColumn dtTime = new DataColumn("time");
+    DataColumn dtFile = new DataColumn("file");
+
+    ds.Tables.Add(dtSongs);
+    dtSongs.Columns.Add(dtId);
+    dtSongs.Columns.Add(dtArtist);
+    dtSongs.Columns.Add(dtTitle);
+    dtSongs.Columns.Add(dtYear);
+    dtSongs.Columns.Add(dtGenre);
+    dtSongs.Columns.Add(dtTime);
+    dtSongs.Columns.Add(dtFile);
+
+    ds.ReadXml(Server.MapPath(@"..\App_Data\playlist.xml"));
+
+}
+
+<h2>Our Music.</h2>
+
+<table >
+    @foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+        <tr>
+            <td>@dr["id"]</td>
+            <td>@dr["artist"]</td>
+            <td>@dr["title"]</td>
+            <td>@dr["year"]</td>
+            <td>@dr["genre"]</td>
+            <td>@dr["time"]</td>
+            <td>@dr["file"]</td>
+        </tr>
+    }
+</table>
