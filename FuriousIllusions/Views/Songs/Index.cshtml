@@ -11,9 +11,9 @@
     DataColumn dtId = new DataColumn("id");
     DataColumn dtArtist = new DataColumn("artist");
     DataColumn dtTitle = new DataColumn("title");
-    DataColumn dtYear = new DataColumn("year");
+    DataColumn dtYear = new DataColumn("publication");
     DataColumn dtGenre = new DataColumn("genre");
-    DataColumn dtTime = new DataColumn("time");
+    DataColumn dtTime = new DataColumn("duration");
     DataColumn dtFile = new DataColumn("file");
 
     ds.Tables.Add(dtSongs);
@@ -38,9 +38,9 @@
             <td>@dr["id"]</td>
             <td>@dr["artist"]</td>
             <td>@dr["title"]</td>
-            <td>@dr["year"]</td>
+            <td>@dr["publication"]</td>
             <td>@dr["genre"]</td>
-            <td>@dr["time"]</td>
+            <td>@dr["duration"]</td>
             <td>@dr["file"]</td>
         </tr>
     }
