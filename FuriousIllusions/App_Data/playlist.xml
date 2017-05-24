@@ -18,4 +18,13 @@
     <duration>2:41</duration>
     <file>Alone.mp3</file>
   </song>
+	<song>
+		<id>3</id>
+		<artist>R3hab</artist>
+		<title>Soundwave - Extended Mix</title>
+		<publication>2014</publication>
+		<genre>Trap</genre>
+		<duration>4:24</duration>
+		<file>Soundwave.mp3</file>
+	</song>
 </playlist>
