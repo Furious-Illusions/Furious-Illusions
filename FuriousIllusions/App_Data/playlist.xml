@@ -45,4 +45,13 @@
     <duration>Test</duration>
     <file>Test</file>
   </song>
+  <song>
+    <id>6</id>
+    <artist>Florian Picasso</artist>
+    <title>Final Call</title>
+    <publication>2016</publication>
+    <genre>Trap</genre>
+    <duration>2:39</duration>
+    <file>Finalcall.mp3</file>
+  </song>
 </playlist>
