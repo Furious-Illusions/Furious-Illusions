@@ -1,7 +1,6 @@
 ﻿@using System.Data;
 
 @{
-    Session["xmlDataSet"] = ds;
 
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -29,21 +28,28 @@
 
     ds.ReadXml(Server.MapPath(@"..\App_Data\playlist.xml"));
 
+    Session["xmlDataSet"] = ds;
+
 }
 
 <h2>Our Music.</h2>
 
 <table >
     @foreach (DataRow dr in ds.Tables[0].Rows)
-            {
-        <tr>
-            <td>@dr["id"]</td>
-            <td>@dr["artist"]</td>
-            <td>@dr["title"]</td>
-            <td>@dr["publication"]</td>
-            <td>@dr["genre"]</td>
-            <td>@dr["duration"]</td>
-            <td>@dr["file"]</td>
-        </tr>
+    {
+    <tr>
+        <td>@dr["id"]</td>
+        <td>@dr["artist"]</td>
+        <td>@dr["title"]</td>
+        <td>@dr["publication"]</td>
+        <td>@dr["genre"]</td>
+        <td>@dr["duration"]</td>
+        <td>@dr["file"]</td>
+    </tr>
     }
+    <tr>
+        <td><button><a href="Create">Create new song</a></button></td>
+        <td><button><a href="Edit">Edit a song</a></button></td>
+        <td><button><a href="Delete">Delete a song</a></button></td>
+    </tr>
 </table>
