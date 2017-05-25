@@ -1,0 +1,50 @@
+﻿@using System.Data;
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    DataSet ds = Session["xmlDataSet"] as DataSet;
+
+
+}
+
+<h2>Delete a Song.</h2>
+
+<form>
+    <table>
+        @foreach (DataRow dr in ds.Tables[0].Rows)
+        {
+            <tr>
+                <td><input type="checkbox" value="@dr['id']"/></td>
+                <td>@dr["id"]</td>
+                <td>@dr["artist"]</td>
+                <td>@dr["title"]</td>
+                <td>@dr["publication"]</td>
+                <td>@dr["genre"]</td>
+                <td>@dr["duration"]</td>
+                <td>@dr["file"]</td>
+            </tr>
+        }
+        <tr>
+            <td colspan="8"><input type="submit" name="" value="Geselecteerde verwijderen"></td>
+        </tr>
+    </table>
+</form>
+
+@{
+    if (IsPost)
+    {
+        
+    }
+    else
+    {
+        ds.Tables[0].
+
+        ds.WriteXml(Server.MapPath("../App_Data/playlist.xml"));
+
+        Response.Redirect("Index");
+    }
+}
+}
+

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" standalone="yes"?>
 <playlist>
   <song>
     <id>1</id>
@@ -18,13 +18,31 @@
     <duration>2:41</duration>
     <file>Alone.mp3</file>
   </song>
-	<song>
-		<id>3</id>
-		<artist>R3hab</artist>
-		<title>Soundwave - Extended Mix</title>
-		<publication>2014</publication>
-		<genre>Trap</genre>
-		<duration>4:24</duration>
-		<file>Soundwave.mp3</file>
-	</song>
+  <song>
+    <id>3</id>
+    <artist>R3hab</artist>
+    <title>Soundwave - Extended Mix</title>
+    <publication>2014</publication>
+    <genre>Trap</genre>
+    <duration>4:24</duration>
+    <file>Soundwave.mp3</file>
+  </song>
+  <song>
+    <id>4</id>
+    <artist>Ok</artist>
+    <title>Ok</title>
+    <publication>Ok</publication>
+    <genre>Ok</genre>
+    <duration>Ok</duration>
+    <file>Ok</file>
+  </song>
+  <song>
+    <id>5</id>
+    <artist>Test</artist>
+    <title>Test</title>
+    <publication>Test</publication>
+    <genre>Test</genre>
+    <duration>Test</duration>
+    <file>Test</file>
+  </song>
 </playlist>

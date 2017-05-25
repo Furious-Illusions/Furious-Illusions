@@ -4,14 +4,17 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    DataSet ds = Session["xmDataSet"] as DataSet;
+    DataSet ds = Session["xmlDataSet"] as DataSet;
 
-
+    var i = 1;
+    foreach (DataRow dr in ds.Tables[0].Rows)
+    { i++; }
 }
 <form method="post" action="">
     <table>
         <tr>
             <td>ID:</td>
+            <td>@{Write(i);}</td>
         </tr>
         <tr>
             <td>Artist:</td>
@@ -43,7 +46,7 @@
     </table>
 </form>
 
-<a href="Index" style="float:right;">Cancel</a>
+<button href="Index.cshtml" style="float:right;">Cancel</button>
 
 @{
     if (IsPost)
@@ -51,7 +54,8 @@
         string waarde = Request.Form["inputelement"];
 
         DataRow dr = ds.Tables[0].NewRow();
-        
+
+        dr["id"] = i;
         dr["artist"] = Request.Form["artist"];
         dr["title"] = Request.Form["title"];
         dr["publication"] = Request.Form["publication"];
@@ -66,17 +70,15 @@
         string.IsNullOrWhiteSpace(Request.Form["duration"]) ||
         string.IsNullOrWhiteSpace(Request.Form["file"]))
         {
-
-
             Response.Write("<h2 style='color: red;'> Nog niet alle velden zijn ingevuld!<h2>");
         }
         else
         {
             ds.Tables[0].Rows.Add(dr);
 
-            ds.WriteXml(Server.MapPath("playlist.xml"));
+            ds.WriteXml(Server.MapPath("../App_Data/playlist.xml"));
 
-            Response.Redirect("Index.cshtml");
+            Response.Redirect("Index");
         }
     }
 }
