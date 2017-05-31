@@ -26,7 +26,7 @@
     dtSongs.Columns.Add(dtTime);
     dtSongs.Columns.Add(dtFile);
 
-    ds.ReadXml(Server.MapPath(@"..\App_Data\playlist.xml"));
+    ds.ReadXml(Server.MapPath(@"\App_Data\playlist.xml"));
 
     Session["xmlDataSet"] = ds;
 

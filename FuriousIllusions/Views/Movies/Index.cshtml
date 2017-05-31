@@ -1,0 +1,50 @@
+﻿@using System.Data;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    DataSet ds2 = new DataSet("movies");
+
+    DataTable dtMovies = new DataTable("Movie");
+
+    DataColumn dtTitle = new DataColumn("Title");
+    DataColumn dtTime = new DataColumn("Duration");
+    DataColumn dtLook = new DataColumn("Kijkwijzer");
+    DataColumn dtYear = new DataColumn("Publication Year");
+    DataColumn dtActors = new DataColumn("Actors");
+    
+    DataColumn dtFile = new DataColumn("file");
+
+    ds2.Tables.Add(dtMovies);
+    dtMovies.Columns.Add(dtTitle);
+    dtMovies.Columns.Add(dtYear);
+    dtMovies.Columns.Add(dtLook);
+    dtMovies.Columns.Add(dtTime);
+    dtMovies.Columns.Add(dtActors);
+
+    ds2.ReadJson(Server.MapPath(@"\App_Data\movies.json"));
+
+    Session["jsonDataSet"] = ds2;
+
+}
+
+<h2>Our Movies.</h2>
+
+<table>
+    @foreach (DataRow dr in ds2.Tables[0].Rows)
+    {
+        <tr>
+            <td>@dr["Title"]</td>
+            <td>@dr["Duration"]</td>
+            <td>@dr["Kijkwijzer"]</td>
+            <td>@dr["Publication Year"]</td>
+            <td>@dr["Actors"]</td>
+        </tr>
+    }
+    <tr>
+        <td><button><a href="">Create new movie</a></button></td>
+        <td><button><a href="">Edit a movie</a></button></td>
+        <td><button><a href="">Delete a movie</a></button></td>
+    </tr>
+</table>

@@ -1,0 +1,11 @@
+﻿{
+	"Movie":
+	[
+	   {"Title":"Harry Potter and the Philosopher's Stone", "Duration":"2:32", "Kijkwijzer":"6", "Publication Year":"2001", "Actors":" Daniel Radcliffe, Rupert Grint, Emma Watson"},
+	   {"Title":"Harry Potter and the Chamber of Secrets", "Duration":"2:41", "Kijkwijzer":"6", "Publication Year":"2002", "Actors":" Daniel Radcliffe, Rupert Grint, Emma Watson"},
+	   {"Title":"Harry Potter and the Prisoner of Azkaban", "Duration":"2:22", "Kijkwijzer":"9", "Publication Year":"2004", "Actors":" Daniel Radcliffe, Rupert Grint, Emma Watson"},
+	   {"Title":"Harry Potter and the Goblet of Fire", "Duration":"2:37", "Kijkwijzer":"12", "Publication Year":"2005", "Actors":" Daniel Radcliffe, Rupert Grint, Emma Watson"},
+	   {"Title":"Harry Potter and the Order of the Phoenix", "Duration":"2:18", "Kijkwijzer":"12", "Publication Year":"2007", "Actors":" Daniel Radcliffe, Rupert Grint, Emma Watson"}
+	]
+
+}

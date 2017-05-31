@@ -29,24 +29,6 @@
   </song>
   <song>
     <id>4</id>
-    <artist>Ok</artist>
-    <title>Ok</title>
-    <publication>Ok</publication>
-    <genre>Ok</genre>
-    <duration>Ok</duration>
-    <file>Ok</file>
-  </song>
-  <song>
-    <id>5</id>
-    <artist>Test</artist>
-    <title>Test</title>
-    <publication>Test</publication>
-    <genre>Test</genre>
-    <duration>Test</duration>
-    <file>Test</file>
-  </song>
-  <song>
-    <id>6</id>
     <artist>Florian Picasso</artist>
     <title>Final Call</title>
     <publication>2016</publication>
