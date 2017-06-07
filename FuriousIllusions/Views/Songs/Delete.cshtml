@@ -6,7 +6,18 @@
 
     DataSet ds = Session["xmlDataSet"] as DataSet;
 
+    if (IsPost)
+    {
 
+    }
+    else
+    {
+
+
+        ds.WriteXml(Server.MapPath("../App_Data/playlist.xml"));
+
+        Response.Redirect("Index");
+    }
 }
 
 <h2>Delete a Song.</h2>
@@ -16,7 +27,6 @@
         @foreach (DataRow dr in ds.Tables[0].Rows)
         {
             <tr>
-                <td><input type="checkbox" value="@dr['id']"/></td>
                 <td>@dr["id"]</td>
                 <td>@dr["artist"]</td>
                 <td>@dr["title"]</td>
@@ -24,6 +34,7 @@
                 <td>@dr["genre"]</td>
                 <td>@dr["duration"]</td>
                 <td>@dr["file"]</td>
+                <td></td>
             </tr>
         }
         <tr>
@@ -32,19 +43,5 @@
     </table>
 </form>
 
-@{
-    if (IsPost)
-    {
-        
-    }
-    else
-    {
-        ds.Tables[0].
 
-        ds.WriteXml(Server.MapPath("../App_Data/playlist.xml"));
-
-        Response.Redirect("Index");
-    }
-}
-}
 
