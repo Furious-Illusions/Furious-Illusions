@@ -18,7 +18,7 @@
 
 <h2>Delete a Song.</h2>
 
-<form>
+<form action="" method="post">
     <table>
         @foreach (DataRow dr in ds.Tables[0].Rows)
         {
@@ -34,7 +34,23 @@
             </tr>
         }
     </table>
+    <br />
+    Weet u zeker dat u deze song wilt verwijderen?
+    <input type="submit" value="Ja" />
+    <a href="Delete">Nee</a>
 </form>
+
+@{
+    string id = Request.QueryString["id"];
+
+    if (IsPost)
+    {
+        DataRow[] drArray = ds.Tables[0].Select("id='" + id + "'");
+        drArray[0].Delete();
+        ds.WriteXml(Server.MapPath(@"..\App_Data\playlist.xml"));
+        Response.Redirect("Index");
+    }
+}
 
 
 

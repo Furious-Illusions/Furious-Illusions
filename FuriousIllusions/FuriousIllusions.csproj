@@ -275,6 +275,7 @@
     <Content Include="Views\Songs\Create.cshtml" />
     <Content Include="Views\Songs\Delete.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Songs\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

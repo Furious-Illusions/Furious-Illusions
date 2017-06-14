@@ -23,5 +23,10 @@ namespace FuriousIllusions.Controllers
         {
             return View();
         }
+
+        public ActionResult Edit()
+        {
+            return View();
+        }
     }
 }
