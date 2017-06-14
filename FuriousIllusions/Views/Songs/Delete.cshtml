@@ -8,15 +8,11 @@
 
     if (IsPost)
     {
-
+        Console.WriteLine("ID");
     }
     else
     {
 
-
-        ds.WriteXml(Server.MapPath("../App_Data/playlist.xml"));
-
-        Response.Redirect("Index");
     }
 }
 
@@ -34,12 +30,9 @@
                 <td>@dr["genre"]</td>
                 <td>@dr["duration"]</td>
                 <td>@dr["file"]</td>
-                <td></td>
+                <td><button><a href='#?id=@dr["id"]'>DELETE</a></button></td>
             </tr>
         }
-        <tr>
-            <td colspan="8"><input type="submit" name="" value="Geselecteerde verwijderen"></td>
-        </tr>
     </table>
 </form>
 
