@@ -2,7 +2,7 @@
 
 @{
 
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Playlist Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     DataSet ds = new DataSet("playlist");
@@ -45,13 +45,13 @@
         <td>@dr["genre"]</td>
         <td>@dr["duration"]</td>
         <td>@dr["file"]</td>
+        <td><a href='Delete?id=@dr["id"]'>Delete</a></td>
     </tr>
     }
     <tr>
         <td colspan="7">
-        <button><a href="Create">Create new song</a></button>
-        <button><a href="Edit">Edit a song</a></button>
-        <button><a href="Delete">Delete a song</a></button>
+        <a href="Create"><button>Create new song</button></a>
+        <a href="Edit"><button>Edit a song</button></a>
         </td>
     </tr>
 </table>

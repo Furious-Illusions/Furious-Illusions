@@ -1,46 +1,11 @@
 ﻿@using System.Data;
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Delete a song";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     DataSet ds = Session["xmlDataSet"] as DataSet;
 
-    if (IsPost)
-    {
-        Console.WriteLine("ID");
-    }
-    else
-    {
-
-    }
-}
-
-<h2>Delete a Song.</h2>
-
-<form action="" method="post">
-    <table>
-        @foreach (DataRow dr in ds.Tables[0].Rows)
-        {
-            <tr>
-                <td>@dr["id"]</td>
-                <td>@dr["artist"]</td>
-                <td>@dr["title"]</td>
-                <td>@dr["publication"]</td>
-                <td>@dr["genre"]</td>
-                <td>@dr["duration"]</td>
-                <td>@dr["file"]</td>
-                <td><button><a href='#?id=@dr["id"]'>DELETE</a></button></td>
-            </tr>
-        }
-    </table>
-    <br />
-    Weet u zeker dat u deze song wilt verwijderen?
-    <input type="submit" value="Ja" />
-    <a href="Delete">Nee</a>
-</form>
-
-@{
     string id = Request.QueryString["id"];
 
     if (IsPost)
@@ -51,6 +16,20 @@
         Response.Redirect("Index");
     }
 }
+
+<h2>Delete a Song.</h2>
+
+<form action="" method="post">
+    <br />
+    Weet u zeker dat u deze song wilt verwijderen?
+    <br />
+    -SONG NAME-
+    <br/>
+    <input type="submit" value="Ja" />
+    <a href="Index">Nee</a>
+</form>
+
+
 
 
 
