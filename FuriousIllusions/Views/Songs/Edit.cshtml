@@ -5,66 +5,57 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     DataSet ds = Session["xmlDataSet"] as DataSet;
+    DataRow song;
 }
 
 <h2>Edit</h2>
 
-<table>
-    @foreach (DataRow dr in ds.Tables[0].Rows)
+@foreach (DataRow dr in ds.Tables[0].Rows)
+{
+    if (dr["id"].ToString() == Request.QueryString["id"])
     {
-        <tr>
-            <td>@dr["id"]</td>
-            <td>@dr["artist"]</td>
-            <td>@dr["title"]</td>
-            <td>@dr["publication"]</td>
-            <td>@dr["genre"]</td>
-            <td>@dr["duration"]</td>
-            <td>@dr["file"]</td>
-            <td><button><a href='#'>EDIT</a></button></td>
-        </tr>
+    <b>Selected song:</b>
+    <br />
+    <form method="post" action="">
+        <table>
+            <tr>
+                <td>ID:</td>
+                <td><input type="text" size="40" name="artist" placeholder="" value="@dr["id"]" readonly></td>
+            </tr>
+            <tr>
+                <td>Artist:</td>
+                <td><input type="text" size="40" name="artist" placeholder="Artist" value="@dr["artist"]"></td>
+            </tr>
+            <tr>
+                <td>Song title:</td>
+                <td><input type="text" size="40" name="title" placeholder="Title of the song" value="@dr["title"]"></td>
+            </tr>
+            <tr>
+                <td>Publication year:</td>
+                <td><input type="text" size="40" name="publication" placeholder="Publication year" value="@dr["publication"]"></td>
+            </tr>
+            <tr>
+                <td>Genre:</td>
+                <td><input type="text" size="40" name="genre" placeholder="Genre" value="@dr["genre"]"></td>
+            </tr>
+            <tr>
+                <td>Duration:</td>
+                <td><input type="text" size="40" name="duration" placeholder="Duration" value="@dr["duration"]"></td>
+            </tr>
+            <tr>
+                <td>Youtube Url link:</td>
+                <td><input type="text" size="40" name="file" placeholder="File name" value="@dr["link"]"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="" value="Edit Song"></td>
+            </tr>
+        </table>
+    </form>
+    <br />
+    break;
     }
-</table>
-<br />
-<br />
-<br />
-<b>Selected song:</b>
-<br />
-<form method="post" action="">
-    <table>
-        <tr>
-            <td>ID:</td>
-            <td><input type="text" size="25" name="artist" placeholder="" value="" readonly></td>
-        </tr>
-        <tr>
-            <td>Artist:</td>
-            <td><input type="text" size="25" name="artist" placeholder="Artist" value=""></td>
-        </tr>
-        <tr>
-            <td>Song title:</td>
-            <td><input type="text" size="25" name="title" placeholder="Title of the song" value=""></td>
-        </tr>
-        <tr>
-            <td>Publication year:</td>
-            <td><input type="text" size="25" name="publication" placeholder="Publication year" value=""></td>
-        </tr>
-        <tr>
-            <td>Genre:</td>
-            <td><input type="text" size="25" name="genre" placeholder="Genre" value=""></td>
-        </tr>
-        <tr>
-            <td>Duration:</td>
-            <td><input type="text" size="25" name="duration" placeholder="Duration" value=""></td>
-        </tr>
-        <tr>
-            <td>File:</td>
-            <td><input type="text" size="25" name="file" placeholder="File name" value=""></td>
-        </tr>
-        <tr>
-            <td><input type="submit" name="" value="Edit Song"></td>
-        </tr>
-    </table>
-</form>
-<br />
+}
+<a href='~/Songs/Index'><button>Cancel</button></a>
 
 
 

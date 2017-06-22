@@ -18,27 +18,27 @@
         </tr>
         <tr>
             <td>Artist:</td>
-            <td><input type="text" size="25" name="artist" placeholder="Artist" value=""></td>
+            <td><input type="text" size="40" name="artist" placeholder="Artist" value=""></td>
         </tr>
         <tr>
             <td>Song title:</td>
-            <td><input type="text" size="25" name="title" placeholder="Title of the song" value=""></td>
+            <td><input type="text" size="40" name="title" placeholder="Title of the song" value=""></td>
         </tr>
         <tr>
             <td>Publication year:</td>
-            <td><input type="text" size="25" name="publication" placeholder="Publication year" value=""></td>
+            <td><input type="text" size="40" name="publication" placeholder="Publication year" value=""></td>
         </tr>
         <tr>
             <td>Genre:</td>
-            <td><input type="text" size="25" name="genre" placeholder="Genre" value=""></td>
+            <td><input type="text" size="40" name="genre" placeholder="Genre" value=""></td>
         </tr>
         <tr>
             <td>Duration:</td>
-            <td><input type="text" size="25" name="duration" placeholder="Duration" value=""></td>
+            <td><input type="text" size="40" name="duration" placeholder="Duration" value=""></td>
         </tr>
         <tr>
-            <td>File:</td>
-            <td><input type="text" size="25" name="file" placeholder="File name" value=""></td>
+            <td>Youtube Url Link (Embedcode):</td>
+            <td><input type="text" size="40" name="link" placeholder="Url link" value=""></td>
         </tr>
         <tr>
             <td><input type="submit" name="" value="Toevoegen"></td>
@@ -61,14 +61,14 @@
         dr["publication"] = Request.Form["publication"];
         dr["genre"] = Request.Form["genre"];
         dr["duration"] = Request.Form["duration"];
-        dr["file"] = Request.Form["file"];
+        dr["link"] = Request.Form["link"] + "?autoplay=1";
 
         if (string.IsNullOrWhiteSpace(Request.Form["artist"]) ||
         string.IsNullOrWhiteSpace(Request.Form["title"]) ||
         string.IsNullOrWhiteSpace(Request.Form["publication"]) ||
         string.IsNullOrWhiteSpace(Request.Form["genre"]) ||
         string.IsNullOrWhiteSpace(Request.Form["duration"]) ||
-        string.IsNullOrWhiteSpace(Request.Form["file"]))
+        string.IsNullOrWhiteSpace(Request.Form["link"]))
         {
             Response.Write("<h2 style='color: red;'> Nog niet alle velden zijn ingevuld!<h2>");
         }

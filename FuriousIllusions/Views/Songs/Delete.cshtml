@@ -23,10 +23,23 @@
     <br />
     Weet u zeker dat u deze song wilt verwijderen?
     <br />
-    -SONG NAME-
+    <i>
+        @foreach (DataRow dr in ds.Tables[0].Rows)
+        {
+            if (dr["id"].ToString() == Request.QueryString["id"])
+            {
+                <table>
+                    <tr>
+                        <td>@dr["artist"] - </td>
+                        <td>@dr["title"]</td>
+                    </tr>
+                </table>
+            }
+        }
+    </i>
     <br/>
     <input type="submit" value="Ja" />
-    <a href="Index">Nee</a>
+    <a href="~/Songs/Index">Nee</a>
 </form>
 
 
