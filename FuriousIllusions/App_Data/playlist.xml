@@ -2,29 +2,11 @@
 <playlist>
   <song>
     <id>1</id>
-    <artist>Monstercat</artist>
-    <title>Best of 2016</title>
-    <publication>2016</publication>
-    <genre>EDM</genre>
-    <duration>2:36:12</duration>
-    <link>https://www.youtube.com/embed/pm36k08jQ0M?autoplay=1</link>
-  </song>
-  <song>
-    <id>2</id>
     <artist>Epic Music VN</artist>
-    <title>Best of Epic Music 2014</title>
-    <publication>2015</publication>
+    <title>Nee Oke 2</title>
+    <publication>2016</publication>
     <genre>None</genre>
     <duration>01:03:25</duration>
     <link>https://www.youtube.com/embed/QcfIroNI3NU?autoplay=1</link>
-  </song>
-  <song>
-    <id>3</id>
-    <artist>10</artist>
-    <title>10</title>
-    <publication>10</publication>
-    <genre>10</genre>
-    <duration>10</duration>
-    <link>https://www.youtube.com/embed/WU7SGn0MeP0?autoplay=1</link>
   </song>
 </playlist>

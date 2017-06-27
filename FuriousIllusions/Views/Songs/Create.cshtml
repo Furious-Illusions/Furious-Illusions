@@ -10,6 +10,7 @@
     foreach (DataRow dr in ds.Tables[0].Rows)
     { i++; }
 }
+<b><i>Create a new Song.</i></b>
 <form method="post" action="">
     <table>
         <tr>
@@ -37,7 +38,7 @@
             <td><input type="text" size="40" name="duration" placeholder="Duration" value=""></td>
         </tr>
         <tr>
-            <td>Youtube Url Link (Embedcode):</td>
+            <td>Youtube Url Link:</td>
             <td><input type="text" size="40" name="link" placeholder="Url link" value=""></td>
         </tr>
         <tr>
@@ -50,19 +51,21 @@
 
 @{
     if (IsPost)
-    {
+    { 
         string waarde = Request.Form["inputelement"];
-
         DataRow dr = ds.Tables[0].NewRow();
-
+        
+        string s = Request.Form["link"].ToString();
+        string v = s.Replace("watch?v=", "embed/");
+        
         dr["id"] = i;
         dr["artist"] = Request.Form["artist"];
         dr["title"] = Request.Form["title"];
         dr["publication"] = Request.Form["publication"];
         dr["genre"] = Request.Form["genre"];
         dr["duration"] = Request.Form["duration"];
-        dr["link"] = Request.Form["link"] + "?autoplay=1";
-
+        dr["link"] = v + "?autoplay=1";
+        
         if (string.IsNullOrWhiteSpace(Request.Form["artist"]) ||
         string.IsNullOrWhiteSpace(Request.Form["title"]) ||
         string.IsNullOrWhiteSpace(Request.Form["publication"]) ||
@@ -75,9 +78,7 @@
         else
         {
             ds.Tables[0].Rows.Add(dr);
-
             ds.WriteXml(Server.MapPath("../App_Data/playlist.xml"));
-
             Response.Redirect("Index");
         }
     }
