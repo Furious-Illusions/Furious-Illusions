@@ -1,13 +1,14 @@
 ﻿@using System.Data
+@using FuriousIllusions.Models;
 
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    DataSet ds = Session["xmlDataSet"] as DataSet;
+    Song song = new Song();
 
     var i = 1;
-    foreach (DataRow dr in ds.Tables[0].Rows)
+    foreach (DataRow dr in song.ds.Tables[0].Rows)
     { i++; }
 }
 <b><i>Create a new Song.</i></b>
@@ -51,35 +52,7 @@
 
 @{
     if (IsPost)
-    { 
-        string waarde = Request.Form["inputelement"];
-        DataRow dr = ds.Tables[0].NewRow();
-        
-        string s = Request.Form["link"].ToString();
-        string v = s.Replace("watch?v=", "embed/");
-        
-        dr["id"] = i;
-        dr["artist"] = Request.Form["artist"];
-        dr["title"] = Request.Form["title"];
-        dr["publication"] = Request.Form["publication"];
-        dr["genre"] = Request.Form["genre"];
-        dr["duration"] = Request.Form["duration"];
-        dr["link"] = v + "?autoplay=1";
-        
-        if (string.IsNullOrWhiteSpace(Request.Form["artist"]) ||
-        string.IsNullOrWhiteSpace(Request.Form["title"]) ||
-        string.IsNullOrWhiteSpace(Request.Form["publication"]) ||
-        string.IsNullOrWhiteSpace(Request.Form["genre"]) ||
-        string.IsNullOrWhiteSpace(Request.Form["duration"]) ||
-        string.IsNullOrWhiteSpace(Request.Form["link"]))
-        {
-            Response.Write("<h2 style='color: red;'> Nog niet alle velden zijn ingevuld!<h2>");
-        }
-        else
-        {
-            ds.Tables[0].Rows.Add(dr);
-            ds.WriteXml(Server.MapPath("../App_Data/playlist.xml"));
-            Response.Redirect("Index");
-        }
+    {
+        song.Create(i);
     }
 }

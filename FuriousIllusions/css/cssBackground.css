@@ -1,5 +1,6 @@
-﻿body {
-    background-image:url('~/images/BG.png');
+﻿body 
+{
+    background-image:url('~\..\images\BG.png');
     background-repeat:no-repeat;
     background-attachment:fixed;
 }

@@ -1,15 +1,17 @@
 ﻿@using System.Data;
+@using FuriousIllusions.Models;
 
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    DataSet ds = Session["xmlDataSet"] as DataSet;
+    Song song = new Song();
+    string id = HttpContext.Current.Request.QueryString["id"];
 }
 
 <h2>Edit</h2>
 
-@foreach (DataRow dr in ds.Tables[0].Rows)
+@foreach (DataRow dr in song.ds.Tables[0].Rows)
 {
     if (dr["id"].ToString() == Request.QueryString["id"])
     {
@@ -59,21 +61,6 @@
 @{
     if (IsPost)
     {
-        string id = Request.QueryString["id"];
-        DataRow[] dr = ds.Tables[0].Select("id='" + id + "'");
-
-        string s = dr[0]["link"].ToString();
-        string v = s.Replace("watch? v = ", "embed / ");
-
-        dr[0]["id"] = Request.Form["id"];
-        dr[0]["artist"] = Request.Form["artist"];
-        dr[0]["title"] = Request.Form["title"];
-        dr[0]["publication"] = Request.Form["publication"];
-        dr[0]["genre"] = Request.Form["genre"];
-        dr[0]["duration"] = Request.Form["duration"];
-        dr[0]["link"] = v + (v.IndexOf("autoplay") < 0 ? "?autoplay=1" : "");
-
-        ds.WriteXml(Server.MapPath("../App_Data/playlist.xml"));
-        Response.Redirect("Index");
+        song.Edit(id);
     }
 }

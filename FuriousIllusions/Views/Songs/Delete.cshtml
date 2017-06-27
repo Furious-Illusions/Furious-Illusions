@@ -1,19 +1,17 @@
 ﻿@using System.Data;
+@using FuriousIllusions.Models;
 
 @{
     ViewBag.Title = "Delete a song";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    DataSet ds = Session["xmlDataSet"] as DataSet;
+    Song song = new Song();
 
     string id = Request.QueryString["id"];
 
     if (IsPost)
     {
-        DataRow[] drArray = ds.Tables[0].Select("id='" + id + "'");
-        drArray[0].Delete();
-        ds.WriteXml(Server.MapPath(@"..\App_Data\playlist.xml"));
-        Response.Redirect("Index");
+        song.Delete(id);
     }
 }
 
@@ -24,7 +22,7 @@
     Weet u zeker dat u deze song wilt verwijderen?
     <br />
     <i>
-        @foreach (DataRow dr in ds.Tables[0].Rows)
+        @foreach (DataRow dr in song.ds.Tables[0].Rows)
         {
             if (dr["id"].ToString() == Request.QueryString["id"])
             {

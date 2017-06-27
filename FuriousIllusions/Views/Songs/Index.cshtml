@@ -1,33 +1,11 @@
 ﻿@using System.Data;
+@using FuriousIllusions.Models;
 
 @{
     ViewBag.Title = "Playlist Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    DataSet ds = new DataSet("playlist");
-
-    DataTable dtSongs = new DataTable("song");
-
-    DataColumn dtId = new DataColumn("id");
-    DataColumn dtArtist = new DataColumn("artist");
-    DataColumn dtTitle = new DataColumn("title");
-    DataColumn dtYear = new DataColumn("publication");
-    DataColumn dtGenre = new DataColumn("genre");
-    DataColumn dtTime = new DataColumn("duration");
-    DataColumn dtLink = new DataColumn("link");
-
-    ds.Tables.Add(dtSongs);
-    dtSongs.Columns.Add(dtId);
-    dtSongs.Columns.Add(dtArtist);
-    dtSongs.Columns.Add(dtTitle);
-    dtSongs.Columns.Add(dtYear);
-    dtSongs.Columns.Add(dtGenre);
-    dtSongs.Columns.Add(dtTime);
-    dtSongs.Columns.Add(dtLink);
-
-    ds.ReadXml(Server.MapPath(@"\App_Data\playlist.xml"));
-
-    Session["xmlDataSet"] = ds;
+    Song song = new Song();
 }
 <script type="text/javascript"
     src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -58,11 +36,11 @@
             <th>Genre</th>
             <th>Duration</th>
             <th colspan="2">Action</th>
-            <th colspan="2">Play as</th>
+            <th colspan="1">Play as</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (DataRow dr in ds.Tables[0].Rows)
+        @foreach (DataRow dr in song.GetSongs())
         {
             <tr>
                 <td>@dr["id"]</td>

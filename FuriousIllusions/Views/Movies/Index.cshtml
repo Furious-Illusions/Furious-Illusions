@@ -1,69 +1,105 @@
 ﻿@using System.Data;
+@using Newtonsoft.Json;
+@using FuriousIllusions.Models;
+
 
 @{
+    string json = @"{
+	'Movie':
+    [   {
+          'Title': 'Harry Potter and the Philosopher`s Stone',
+          'Duration': '2:32',
+          'Kijkwijzer': '6',
+          'PublicationYear': '2001',
+          'Actors': 'Daniel Radcliffe, Rupert Grint, Emma Watson',
+          'Trailer': 'https://www.youtube.com/embed/VyHV0BRtdxo'
+        },
+        {
+          'Title': 'Harry Potter and the Chamber of Secrets',
+          'Duration': '2:41',
+          'Kijkwijzer': '6',
+          'PublicationYear': '2002',
+          'Actors': 'Daniel Radcliffe, Rupert Grint, Emma Watson',
+          'Trailer': 'https://www.youtube.com/embed/uU-ET1FAv3Y'
+        },
+        {
+          'Title': 'Harry Potter and the Prisoner of Azkaban',
+          'Duration': '2:22',
+          'Kijkwijzer': '9',
+          'PublicationYear': '2004',
+          'Actors': 'Daniel Radcliffe, Rupert Grint, Emma Watson',
+          'Trailer': 'https://www.youtube.com/embed/lAxgztbYDbs'
+        },
+        {
+          'Title': 'Harry Potter and the Goblet of Fire',
+          'Duration': '2:37',
+          'Kijkwijzer': '12',
+          'PublicationYear': '2005',
+          'Actors': 'Daniel Radcliffe, Rupert Grint, Emma Watson',
+          'Trailer': 'https://www.youtube.com/embed/PFWAOnvMd1Q'
+        },
+        {
+          'Title': 'Harry Potter and the Order of the Phoenix',
+          'Duration': '2:18',
+          'Kijkwijzer': '12',
+          'PublicationYear': '2007',
+          'Actors': 'Daniel Radcliffe, Rupert Grint, Emma Watson',
+          'Trailer': 'https://www.youtube.com/embed/y6ZW7KXaXYk'
+        }
+    ]}";
 
-    // Globale JSON object.
-    protected dynamic jsonObj;
+    List<Movie> bsObj = JsonConvert.DeserializeObject<MovieList>(json).Movie.ToList();
 
-    // Het pad naar Playlist.json.
-    protected string playlistFilePath = HttpContext.Current.Server.MapPath("~/App_Data/movies.json");
-
-    public JsonSongsDataSet()
-    {
-        // Haal de JSON op uit Playlist.json.
-        string json = File.ReadAllText(playlistFilePath);
-
-        // Zet de JSON om naar RootObject (zie Song.cs) en sla deze op in de globale property.
-        jsonObj = JsonConvert.DeserializeObject<RootObject>(json);
-    }
-
-
-
-
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-
-    DataSet ds2 = new DataSet("movies");
-
-    DataTable dtMovies = new DataTable("Movie");
-
-    DataColumn dtTitle = new DataColumn("Title");
-    DataColumn dtTime = new DataColumn("Duration");
-    DataColumn dtLook = new DataColumn("Kijkwijzer");
-    DataColumn dtYear = new DataColumn("Publication Year");
-    DataColumn dtActors = new DataColumn("Actors");
-
-    DataColumn dtFile = new DataColumn("file");
-
-    ds2.Tables.Add(dtMovies);
-    dtMovies.Columns.Add(dtTitle);
-    dtMovies.Columns.Add(dtYear);
-    dtMovies.Columns.Add(dtLook);
-    dtMovies.Columns.Add(dtTime);
-    dtMovies.Columns.Add(dtActors);
-
-    ds2.ReadJson(Server.MapPath(@"\App_Data\movies.json"));
-
-    Session["jsonDataSet"] = ds2;
 
 }
+<script type="text/javascript"
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+</script>
+<script>
+        $(document).ready(function () {
+            $(".frame").click(function (event) {
+                event.preventDefault();
 
-<h2>Our Movies.</h2>
+                $("#frameVid").attr("src", $(this).attr("href"));
 
+                $("#frameVid").css("display", "block");
+            });
+        });
+</script>
+
+<h2>Our Movies</h2>
 <table>
-    @foreach (DataRow dr in ds2.Tables[0].Rows)
+    @foreach (Movie m in bsObj)
     {
+
         <tr>
-            <td>@dr["Title"]</td>
-            <td>@dr["Duration"]</td>
-            <td>@dr["Kijkwijzer"]</td>
-            <td>@dr["Publication Year"]</td>
-            <td>@dr["Actors"]</td>
+            <td><b>Title: </b></td>
+            <td>@m.Title</td>
         </tr>
+        <tr>
+            <td><b>Duration: </b></td>
+            <td>@m.Duration</td>
+        </tr>
+        <tr>
+            <td><b>Kijkwijzer: </b></td>
+            <td>@m.Kijkwijzer jaar</td>
+        </tr>
+        <tr>
+            <td><b>Publication year: </b></td>
+            <td>@m.PublicationYear</td>
+        </tr>
+        <tr>
+            <td><b>Actors: </b></td>
+            <td>@m.Actors</td>
+        </tr>
+        <tr>
+            <td><a href="@m.Trailer" class="frame" target="frameVid">Video</a></td>
+        </tr>
+        <tr><td height="20px"> </td></tr>
+
+
     }
-    <tr>
-        <td><button><a href="">Create new movie</a></button></td>
-        <td><button><a href="">Edit a movie</a></button></td>
-        <td><button><a href="">Delete a movie</a></button></td>
-    </tr>
 </table>
+<iframe src="" id="frameVid" style="display:none; width:1140px; height:680px;"></iframe>
