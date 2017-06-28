@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+<b><i>Create a new Movie.</i></b>
+<form method="post" action="">
+    <table>
+        </tr>
+        <tr>
+            <td>Titel:</td>
+            <td><input type="text" size="40" name="Title" placeholder="Title" value=""></td>
+        </tr>
+        <tr>
+            <td>Duur</td>
+            <td><input type="text" size="40" name="Duration" placeholder="Duration" value=""></td>
+        </tr>
+        <tr>
+            <td>Publicatie jaar:</td>
+            <td><input type="text" size="40" name="Kijkwijzer" placeholder="Kijkwijzer" value=""></td>
+        </tr>
+        <tr>
+            <td>Genre:</td>
+            <td><input type="text" size="40" name="PublicationYear" placeholder="Publication Year" value=""></td>
+        </tr>
+        <tr>
+            <td>Acteurs:</td>
+            <td><input type="text" size="40" name="Actors" placeholder="Actors" value=""></td>
+        </tr>
+        <tr>
+            <td>Youtube Url Link:</td>
+            <td><input type="text" size="40" name="Trailer" placeholder="Url link" value=""></td>
+        </tr>
+        <tr>
+            <td><input type="submit" name="" value="Toevoegen"></td>
+        </tr>
+    </table>
+</form>
+<br />
+<button><a href="Index" style="float:right;">Cancel</a></button>

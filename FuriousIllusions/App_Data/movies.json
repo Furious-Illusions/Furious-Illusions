@@ -1,10 +1,51 @@
-﻿{
-	"Movie":
-	[
-	   {"Title":"Harry Potter and the Philosopher's Stone", "Duration":"2:32", "Kijkwijzer":"6", "Publication Year":"2001", "Actors":" Daniel Radcliffe, Rupert Grint, Emma Watson"},
-	   {"Title":"Harry Potter and the Chamber of Secrets", "Duration":"2:41", "Kijkwijzer":"6", "Publication Year":"2002", "Actors":" Daniel Radcliffe, Rupert Grint, Emma Watson"},
-	   {"Title":"Harry Potter and the Prisoner of Azkaban", "Duration":"2:22", "Kijkwijzer":"9", "Publication Year":"2004", "Actors":" Daniel Radcliffe, Rupert Grint, Emma Watson"},
-	   {"Title":"Harry Potter and the Goblet of Fire", "Duration":"2:37", "Kijkwijzer":"12", "Publication Year":"2005", "Actors":" Daniel Radcliffe, Rupert Grint, Emma Watson"},
-	   {"Title":"Harry Potter and the Order of the Phoenix", "Duration":"2:18", "Kijkwijzer":"12", "Publication Year":"2007", "Actors":" Daniel Radcliffe, Rupert Grint, Emma Watson"}
-	]
-}
+ 
+[
+  {
+    "Title": "Harry Potter and the Philosophers Stone",
+    "Duration": "2:32",
+    "Kijkwijzer": "6",
+    "PublicationYear": "2001",
+    "Actors": "Daniel Radcliffe, Rupert Grint, Emma Watson",
+    "Trailer": "https://www.youtube.com/embed/VyHV0BRtdxo"
+  },
+  {
+    "Title": "Harry Potter and the Chamber of Secrets",
+    "Duration": "2:41",
+    "Kijkwijzer": "6",
+    "PublicationYear": "2002",
+    "Actors": "Daniel Radcliffe, Rupert Grint, Emma Watson",
+    "Trailer": "https://www.youtube.com/embed/uU-ET1FAv3Y"
+  },
+  {
+    "Title": "Harry Potter and the Prisoner of Azkaban",
+    "Duration": "2:22",
+    "Kijkwijzer": "9",
+    "PublicationYear": "2004",
+    "Actors": "Daniel Radcliffe, Rupert Grint, Emma Watson",
+    "Trailer": "https://www.youtube.com/embed/lAxgztbYDbs"
+  },
+  {
+    "Title": "Harry Potter and the Goblet of Fire",
+    "Duration": "2:37",
+    "Kijkwijzer": "12",
+    "PublicationYear": "2005",
+    "Actors": "Daniel Radcliffe, Rupert Grint, Emma Watson",
+    "Trailer": "https://www.youtube.com/embed/PFWAOnvMd1Q"
+  },
+  {
+    "Title": "Harry Potter and the Order of the Phoenix",
+    "Duration": "2:18",
+    "Kijkwijzer": "12",
+    "PublicationYear": "2007",
+    "Actors": "Daniel Radcliffe, Rupert Grint, Emma Watson",
+    "Trailer": "https://www.youtube.com/embed/y6ZW7KXaXYk"
+  },
+  {
+    "Title": null,
+    "Duration": null,
+    "Kijkwijzer": null,
+    "PublicationYear": null,
+    "Actors": "dsadsa",
+    "Trailer": null
+  }
+]

@@ -2,11 +2,20 @@
 <playlist>
   <song>
     <id>1</id>
-    <artist>JAAAAAA OKEE</artist>
-    <title>I DID IT</title>
+    <artist>Raymon</artist>
+    <title>He did it!</title>
     <publication>oekwo</publication>
     <genre>ceo</genre>
     <duration>ow</duration>
     <link>https://www.youtube.com/embed/1-xGerv5FOk?autoplay=1</link>
+  </song>
+  <song>
+    <id>2</id>
+    <artist>maak</artist>
+    <title>is</title>
+    <publication>wat</publication>
+    <genre>meer</genre>
+    <duration>songs</duration>
+    <link>https://www.youtube.com/embed/spJib2xOlrg?autoplay=1</link>
   </song>
 </playlist>

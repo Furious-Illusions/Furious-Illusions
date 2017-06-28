@@ -281,6 +281,7 @@
     <Content Include="Views\Songs\Delete.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Songs\Edit.cshtml" />
+    <Content Include="Views\Movies\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\" />
